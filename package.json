@@ -1,0 +1,25 @@
+{
+  "name": "sarafan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Aleksandr-41-53/sarafan.git",
+  "author": "<darkginesys@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-resource": "^1.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

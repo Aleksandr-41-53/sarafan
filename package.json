@@ -1,12 +1,13 @@
 {
   "name": "sarafan",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "repository": "git@github.com:Aleksandr-41-53/sarafan.git",
   "author": "<darkginesys@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "vue": "^2.5.17",
@@ -16,6 +17,7 @@
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.25.1",

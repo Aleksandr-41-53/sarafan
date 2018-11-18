@@ -1,9 +1,11 @@
 <template>
     <div>
-    <div v-if="!profile">Необходимо авторизоваться через <a href="/login">Google</a></div>
+    <div v-if="!profile">Необходимо авторизоваться через
+        <a href="/login">Google</a>
+    </div>
     <div v-else>
         <div>{{profile.name}}&nbsp;<a href="/logout">Выйти</a></div>
-            <messages-list :messages="messages" />
+        <messages-list :messages="messages" />
         </div>
     </div>
 </template>
@@ -14,7 +16,7 @@
     import { getIndex } from 'util/collections'
 
     export default {
-        comments: {
+        components: {
             MessagesList
         },
         data() {
@@ -25,11 +27,11 @@
         },
         created() {
             addHandler(data => {
-                let index = getIndex(this.message, data.id)
+                let index = getIndex(this.messages, data.id)
                 if (index > -1) {
-                    this.message.splice(index, 1, data)
+                    this.messages.splice(index, 1, data)
                 } else {
-                    this.message.push(data)
+                    this.messages.push(data)
                 }
             })
         }

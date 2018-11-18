@@ -24,12 +24,13 @@ public class MessageController {
     }
 
     @GetMapping
-    @JsonView(Views.IdName.class) // exclude date
+    @JsonView(Views.IdName.class)
     public List<Message> list() {
         return messageRepo.findAll();
     }
 
     @GetMapping("{id}")
+    @JsonView(Views.FullMessage.class)
     public Message getOne(@PathVariable("id") Message message) {
         return message;
     }
@@ -47,7 +48,7 @@ public class MessageController {
     ) {
         BeanUtils.copyProperties(message, messageFromDb, "id");
 
-         return messageRepo.save(messageFromDb);
+        return messageRepo.save(messageFromDb);
     }
 
     @DeleteMapping("{id}")
@@ -56,8 +57,8 @@ public class MessageController {
     }
 
     @MessageMapping("/changeMessage")
-    @SendTo("/topic/avtivity")
-    public Message chage(Message message) {
+    @SendTo("/topic/activity")
+    public Message message(Message message) {
         return messageRepo.save(message);
     }
 }

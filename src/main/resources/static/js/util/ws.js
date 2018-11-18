@@ -1,6 +1,7 @@
 import SockJS from 'sockjs-client'
 import { Stomp } from '@stomp/stompjs'
 
+
 var stompClient = null
 const handlers = []
 
@@ -10,7 +11,7 @@ export function connect() {
     stompClient.connect({}, frame => {
         console.log('Connected: ' + frame)
         stompClient.subscribe('/topic/activity', message => {
-            handlers.forEach(handlers => handlers(JSON.parse(message.body)))
+            handlers.forEach(handler => handler(JSON.parse(message.body)))
         })
     })
 }
@@ -26,6 +27,6 @@ export function disconnect() {
     console.log("Disconnected")
 }
 
-export function sendName() {
+export function sendMessage(message) {
     stompClient.send("/app/changeMessage", {}, JSON.stringify(message))
 }
